@@ -1,0 +1,6 @@
+framework module Pods_MOViEUITests {
+  umbrella header "Pods-MOViEUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

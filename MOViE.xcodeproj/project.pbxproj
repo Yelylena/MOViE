@@ -7,14 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3575FAB54069079D2FC52506 /* Pods_MOViE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE41C20BD6942FAB3A7D94F1 /* Pods_MOViE.framework */; };
 		43DB676620AB2EFC009F8A91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DB676520AB2EFC009F8A91 /* AppDelegate.swift */; };
-		43DB676820AB2EFC009F8A91 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DB676720AB2EFC009F8A91 /* ViewController.swift */; };
 		43DB676B20AB2EFC009F8A91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43DB676920AB2EFC009F8A91 /* Main.storyboard */; };
 		43DB676E20AB2EFC009F8A91 /* MOViE.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 43DB676C20AB2EFC009F8A91 /* MOViE.xcdatamodeld */; };
 		43DB677020AB2EFF009F8A91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43DB676F20AB2EFF009F8A91 /* Assets.xcassets */; };
 		43DB677320AB2EFF009F8A91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43DB677120AB2EFF009F8A91 /* LaunchScreen.storyboard */; };
 		43DB677E20AB2F00009F8A91 /* MOViETests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DB677D20AB2F00009F8A91 /* MOViETests.swift */; };
 		43DB678920AB2F00009F8A91 /* MOViEUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DB678820AB2F00009F8A91 /* MOViEUITests.swift */; };
+		672E12C586B295CAEE27AAFB /* Pods_MOViEUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00472496A5B123A460DA5FBD /* Pods_MOViEUITests.framework */; };
+		9EEA544C197F85DDB0D3EFA8 /* Pods_MOViETests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FE351399D9CEA7D49CA2756 /* Pods_MOViETests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,9 +37,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00472496A5B123A460DA5FBD /* Pods_MOViEUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MOViEUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		13C65D8EA75DE405972E2758 /* Pods-MOViE.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MOViE.release.xcconfig"; path = "Pods/Target Support Files/Pods-MOViE/Pods-MOViE.release.xcconfig"; sourceTree = "<group>"; };
+		34C1319767BF6DF6D6BE0A33 /* Pods-MOViEUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MOViEUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MOViEUITests/Pods-MOViEUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		43DB676220AB2EFC009F8A91 /* MOViE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MOViE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43DB676520AB2EFC009F8A91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		43DB676720AB2EFC009F8A91 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		43DB676A20AB2EFC009F8A91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		43DB676D20AB2EFC009F8A91 /* MOViE.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MOViE.xcdatamodel; sourceTree = "<group>"; };
 		43DB676F20AB2EFF009F8A91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +53,12 @@
 		43DB678420AB2F00009F8A91 /* MOViEUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MOViEUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		43DB678820AB2F00009F8A91 /* MOViEUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MOViEUITests.swift; sourceTree = "<group>"; };
 		43DB678A20AB2F00009F8A91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8FE351399D9CEA7D49CA2756 /* Pods_MOViETests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MOViETests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE41C20BD6942FAB3A7D94F1 /* Pods_MOViE.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MOViE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C001A30DB7F6192153B2BEF5 /* Pods-MOViE.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MOViE.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MOViE/Pods-MOViE.debug.xcconfig"; sourceTree = "<group>"; };
+		CDEECFEC1EBBE95523419837 /* Pods-MOViEUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MOViEUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MOViEUITests/Pods-MOViEUITests.release.xcconfig"; sourceTree = "<group>"; };
+		DB95E4C9CC2E19A7B0634061 /* Pods-MOViETests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MOViETests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MOViETests/Pods-MOViETests.debug.xcconfig"; sourceTree = "<group>"; };
+		E9E300226F3D86439CCE02B2 /* Pods-MOViETests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MOViETests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MOViETests/Pods-MOViETests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3575FAB54069079D2FC52506 /* Pods_MOViE.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EEA544C197F85DDB0D3EFA8 /* Pods_MOViETests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				672E12C586B295CAEE27AAFB /* Pods_MOViEUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +96,8 @@
 				43DB677C20AB2F00009F8A91 /* MOViETests */,
 				43DB678720AB2F00009F8A91 /* MOViEUITests */,
 				43DB676320AB2EFC009F8A91 /* Products */,
+				B4574698815E1CC2D9011772 /* Pods */,
+				449476F9339EBECF148FED32 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,7 +115,9 @@
 			isa = PBXGroup;
 			children = (
 				43DB676520AB2EFC009F8A91 /* AppDelegate.swift */,
-				43DB676720AB2EFC009F8A91 /* ViewController.swift */,
+				43DB679620AB36BE009F8A91 /* Model */,
+				43DB679820AB36EE009F8A91 /* View */,
+				43DB679920AB36F5009F8A91 /* Controller */,
 				43DB676920AB2EFC009F8A91 /* Main.storyboard */,
 				43DB676F20AB2EFF009F8A91 /* Assets.xcassets */,
 				43DB677120AB2EFF009F8A91 /* LaunchScreen.storyboard */,
@@ -128,6 +145,50 @@
 			path = MOViEUITests;
 			sourceTree = "<group>";
 		};
+		43DB679620AB36BE009F8A91 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		43DB679820AB36EE009F8A91 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		43DB679920AB36F5009F8A91 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		449476F9339EBECF148FED32 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BE41C20BD6942FAB3A7D94F1 /* Pods_MOViE.framework */,
+				8FE351399D9CEA7D49CA2756 /* Pods_MOViETests.framework */,
+				00472496A5B123A460DA5FBD /* Pods_MOViEUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B4574698815E1CC2D9011772 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C001A30DB7F6192153B2BEF5 /* Pods-MOViE.debug.xcconfig */,
+				13C65D8EA75DE405972E2758 /* Pods-MOViE.release.xcconfig */,
+				DB95E4C9CC2E19A7B0634061 /* Pods-MOViETests.debug.xcconfig */,
+				E9E300226F3D86439CCE02B2 /* Pods-MOViETests.release.xcconfig */,
+				34C1319767BF6DF6D6BE0A33 /* Pods-MOViEUITests.debug.xcconfig */,
+				CDEECFEC1EBBE95523419837 /* Pods-MOViEUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +196,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 43DB678D20AB2F00009F8A91 /* Build configuration list for PBXNativeTarget "MOViE" */;
 			buildPhases = (
+				54847A26FE8F1AE94BE67773 /* [CP] Check Pods Manifest.lock */,
 				43DB675E20AB2EFC009F8A91 /* Sources */,
 				43DB675F20AB2EFC009F8A91 /* Frameworks */,
 				43DB676020AB2EFC009F8A91 /* Resources */,
+				2C9EE29CEA159BBEF62BD73D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -152,6 +215,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 43DB679020AB2F00009F8A91 /* Build configuration list for PBXNativeTarget "MOViETests" */;
 			buildPhases = (
+				2E3E06233567DC700EEA64E6 /* [CP] Check Pods Manifest.lock */,
 				43DB677520AB2F00009F8A91 /* Sources */,
 				43DB677620AB2F00009F8A91 /* Frameworks */,
 				43DB677720AB2F00009F8A91 /* Resources */,
@@ -170,6 +234,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 43DB679320AB2F00009F8A91 /* Build configuration list for PBXNativeTarget "MOViEUITests" */;
 			buildPhases = (
+				A9189ED4FE1D9E731C73F825 /* [CP] Check Pods Manifest.lock */,
 				43DB678020AB2F00009F8A91 /* Sources */,
 				43DB678120AB2F00009F8A91 /* Frameworks */,
 				43DB678220AB2F00009F8A91 /* Resources */,
@@ -254,12 +319,86 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2C9EE29CEA159BBEF62BD73D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MOViE/Pods-MOViE-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/YouTubePlayer/YouTubePlayer.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YouTubePlayer.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MOViE/Pods-MOViE-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2E3E06233567DC700EEA64E6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MOViETests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		54847A26FE8F1AE94BE67773 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MOViE-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A9189ED4FE1D9E731C73F825 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MOViEUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		43DB675E20AB2EFC009F8A91 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43DB676820AB2EFC009F8A91 /* ViewController.swift in Sources */,
 				43DB676E20AB2EFC009F8A91 /* MOViE.xcdatamodeld in Sources */,
 				43DB676620AB2EFC009F8A91 /* AppDelegate.swift in Sources */,
 			);
@@ -432,15 +571,14 @@
 		};
 		43DB678E20AB2F00009F8A91 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C001A30DB7F6192153B2BEF5 /* Pods-MOViE.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7Z6T588M79;
 				INFOPLIST_FILE = MOViE/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Yelylena.MOViE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -450,15 +588,14 @@
 		};
 		43DB678F20AB2F00009F8A91 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 13C65D8EA75DE405972E2758 /* Pods-MOViE.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7Z6T588M79;
 				INFOPLIST_FILE = MOViE/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Yelylena.MOViE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -468,17 +605,14 @@
 		};
 		43DB679120AB2F00009F8A91 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB95E4C9CC2E19A7B0634061 /* Pods-MOViETests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7Z6T588M79;
 				INFOPLIST_FILE = MOViETests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Yelylena.MOViETests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -489,17 +623,14 @@
 		};
 		43DB679220AB2F00009F8A91 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E9E300226F3D86439CCE02B2 /* Pods-MOViETests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7Z6T588M79;
 				INFOPLIST_FILE = MOViETests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Yelylena.MOViETests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -510,16 +641,13 @@
 		};
 		43DB679420AB2F00009F8A91 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 34C1319767BF6DF6D6BE0A33 /* Pods-MOViEUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7Z6T588M79;
 				INFOPLIST_FILE = MOViEUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Yelylena.MOViEUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -530,16 +658,13 @@
 		};
 		43DB679520AB2F00009F8A91 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CDEECFEC1EBBE95523419837 /* Pods-MOViEUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7Z6T588M79;
 				INFOPLIST_FILE = MOViEUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Yelylena.MOViEUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
