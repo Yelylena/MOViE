@@ -25,7 +25,5 @@ class ShortMovieItemTableViewCell: UITableViewCell {
     @IBOutlet weak var popularity: UILabel!
     @IBOutlet weak var originalTitle: UILabel!
     @IBOutlet weak var releaseDate: UILabel!
-    @IBOutlet weak var overview: UILabel!
-    @IBOutlet weak var viewMore: UILabel!
     
 }
