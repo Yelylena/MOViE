@@ -1,16 +1,20 @@
 PODS:
+  - Alamofire (4.7.1)
   - YouTubePlayer (0.4.0)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.7)
   - YouTubePlayer
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - Alamofire
     - YouTubePlayer
 
 SPEC CHECKSUMS:
+  Alamofire: 68d7d521118d49c615a8d2214d87cdf525599d30
   YouTubePlayer: 028451f6772f372d4759866db99824c676ac1473
 
-PODFILE CHECKSUM: bc854b4e5178221b926fb952b4bcfff17486a0e3
+PODFILE CHECKSUM: d173f3c581e226263e8d3cfbde9cc6fa34827cd9
 
 COCOAPODS: 1.5.0

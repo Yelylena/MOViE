@@ -15,6 +15,8 @@
 		43DB677320AB2EFF009F8A91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43DB677120AB2EFF009F8A91 /* LaunchScreen.storyboard */; };
 		43DB677E20AB2F00009F8A91 /* MOViETests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DB677D20AB2F00009F8A91 /* MOViETests.swift */; };
 		43DB678920AB2F00009F8A91 /* MOViEUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DB678820AB2F00009F8A91 /* MOViEUITests.swift */; };
+		43DB679E20AB58DA009F8A91 /* ShortMovieItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DB679C20AB58DA009F8A91 /* ShortMovieItemTableViewCell.swift */; };
+		43DB679F20AB58DA009F8A91 /* ShortMovieItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43DB679D20AB58DA009F8A91 /* ShortMovieItemTableViewCell.xib */; };
 		672E12C586B295CAEE27AAFB /* Pods_MOViEUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00472496A5B123A460DA5FBD /* Pods_MOViEUITests.framework */; };
 		9EEA544C197F85DDB0D3EFA8 /* Pods_MOViETests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FE351399D9CEA7D49CA2756 /* Pods_MOViETests.framework */; };
 /* End PBXBuildFile section */
@@ -53,6 +55,8 @@
 		43DB678420AB2F00009F8A91 /* MOViEUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MOViEUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		43DB678820AB2F00009F8A91 /* MOViEUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MOViEUITests.swift; sourceTree = "<group>"; };
 		43DB678A20AB2F00009F8A91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		43DB679C20AB58DA009F8A91 /* ShortMovieItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortMovieItemTableViewCell.swift; sourceTree = "<group>"; };
+		43DB679D20AB58DA009F8A91 /* ShortMovieItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShortMovieItemTableViewCell.xib; sourceTree = "<group>"; };
 		8FE351399D9CEA7D49CA2756 /* Pods_MOViETests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MOViETests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE41C20BD6942FAB3A7D94F1 /* Pods_MOViE.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MOViE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C001A30DB7F6192153B2BEF5 /* Pods-MOViE.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MOViE.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MOViE/Pods-MOViE.debug.xcconfig"; sourceTree = "<group>"; };
@@ -155,6 +159,8 @@
 		43DB679820AB36EE009F8A91 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				43DB679C20AB58DA009F8A91 /* ShortMovieItemTableViewCell.swift */,
+				43DB679D20AB58DA009F8A91 /* ShortMovieItemTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -299,6 +305,7 @@
 			files = (
 				43DB677320AB2EFF009F8A91 /* LaunchScreen.storyboard in Resources */,
 				43DB677020AB2EFF009F8A91 /* Assets.xcassets in Resources */,
+				43DB679F20AB58DA009F8A91 /* ShortMovieItemTableViewCell.xib in Resources */,
 				43DB676B20AB2EFC009F8A91 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -327,10 +334,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MOViE/Pods-MOViE-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/YouTubePlayer/YouTubePlayer.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YouTubePlayer.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -401,6 +410,7 @@
 			files = (
 				43DB676E20AB2EFC009F8A91 /* MOViE.xcdatamodeld in Sources */,
 				43DB676620AB2EFC009F8A91 /* AppDelegate.swift in Sources */,
+				43DB679E20AB58DA009F8A91 /* ShortMovieItemTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,7 +588,10 @@
 				DEVELOPMENT_TEAM = 7Z6T588M79;
 				INFOPLIST_FILE = MOViE/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = Yelylena.MOViE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -595,7 +608,10 @@
 				DEVELOPMENT_TEAM = 7Z6T588M79;
 				INFOPLIST_FILE = MOViE/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = Yelylena.MOViE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -612,7 +628,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7Z6T588M79;
 				INFOPLIST_FILE = MOViETests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = Yelylena.MOViETests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -630,7 +650,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7Z6T588M79;
 				INFOPLIST_FILE = MOViETests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = Yelylena.MOViETests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -647,7 +671,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7Z6T588M79;
 				INFOPLIST_FILE = MOViEUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = Yelylena.MOViEUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -664,7 +692,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7Z6T588M79;
 				INFOPLIST_FILE = MOViEUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = Yelylena.MOViEUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

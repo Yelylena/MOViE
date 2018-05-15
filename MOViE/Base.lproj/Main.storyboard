@@ -28,8 +28,8 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="9Zt-MR-OXS" id="uUG-Cx-tZJ"/>
-                            <outlet property="delegate" destination="9Zt-MR-OXS" id="rDO-GP-7Wi"/>
+                            <outlet property="dataSource" destination="9Zt-MR-OXS" id="7kc-y9-J0i"/>
+                            <outlet property="delegate" destination="9Zt-MR-OXS" id="FnG-4m-hyP"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="ALv-FE-Pzd"/>

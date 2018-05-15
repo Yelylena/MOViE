@@ -7,6 +7,7 @@ target 'MOViE' do
 
   # Pods for MOViE
     pod 'YouTubePlayer'
+    pod 'Alamofire', '~> 4.7'
 
   target 'MOViETests' do
     inherit! :search_paths
