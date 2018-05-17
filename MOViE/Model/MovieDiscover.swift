@@ -24,21 +24,4 @@ struct MovieDiscover: Mappable {
         totalResults <- map["total_results"]
         totalPages   <- map["total_pages"]
     }
-   
-    
-//    init?(response: HTTPURLResponse, representation: Any) {
-//        guard
-//            let representation = representation as? [String: Any],
-//            let page = representation["page"] as? Int,
-//            let results = representation["results"] as? [[String: Any]],
-//            let totalResults = representation["total_results"] as? Int,
-//            let totalPages = representation["total_pages"] as? Int
-//        else { return nil }
-    
-//        self.page = page
-//        self.results = results
-//        self.totalResults = totalResults
-//        self.totalPages = totalPages
-//    }
-    
 }
