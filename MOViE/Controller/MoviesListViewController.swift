@@ -13,8 +13,13 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBOutlet weak var moviesListTableView: UITableView!
     
+    private var moviesList = [MovieItem]()
+    private var movieHandler = MovieHandler()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.movieHandler.getMovieDiscover()
         
         moviesListTableView.delegate = self
         moviesListTableView.dataSource = self
