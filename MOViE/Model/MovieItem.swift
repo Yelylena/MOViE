@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import ObjectMapper
 
-struct MovieItem: ResponseObjectSerializable, ResponseCollectionSerializable {
-    
+struct MovieItem: Mappable {
+
     var posterPath: String?
     var adult: Bool?
     var overview: String?
@@ -25,6 +26,26 @@ struct MovieItem: ResponseObjectSerializable, ResponseCollectionSerializable {
     var video: Bool?
     var voteAverage: Double?
     
+    init?(map: Map) {}
+    
+    mutating func mapping(map: Map) {
+        posterPath       <- map["poster_path"]
+        adult            <- map["adult"]
+        overview         <- map["overview"]
+        releaseDate      <- map["release_date"]
+        genreIds         <- map["genre_ids"]
+        id               <- map["id"]
+        originalTitle    <- map["original_title"]
+        originalLanguage <- map["original_language"]
+        title            <- map["title"]
+        backdropPath     <- map["backdrop_path"]
+        popularity       <- map["popularity"]
+        voteCount        <- map["vote_count"]
+        video            <- map["video"]
+        voteAverage      <- map["vote_average"]
+    }
+    
+    
 //    init(originalTitle: String, releaseDate: String) {
 //        self.originalTitle = originalTitle
 //        self.releaseDate = releaseDate
@@ -34,45 +55,45 @@ struct MovieItem: ResponseObjectSerializable, ResponseCollectionSerializable {
 //        originalTitle = String()
 //        releaseDate = String()
 //    }
-    init?(response: HTTPURLResponse, representation: Any) {
-        guard let representation = representation as? [String: Any] else {return nil}
-        guard let posterPath = representation["poster_path"] as? String else {return nil}
-        guard let adult = representation["adult"] as? Bool else {return nil}
-        guard let overview = representation["overview"] as? String else {return nil}
-        guard let releaseDate = representation["release_date"] as? String else {return nil}
-        guard let genreIds = representation["genre_ids"] as?[Int] else {return nil}
-        guard let id = representation["id"] as? Int else {return nil}
-        guard let originalTitle = representation["original_title"] as? String else {return nil}
-        guard let originalLanguage = representation["original_language"] as? String else {return nil}
-        guard let title = representation["title"] as? String else {return nil}
-        guard let backdropPath = representation["backdrop_path"] as? String else {return nil}
-        guard let popularity = representation["popularity"] as? Double else {return nil}
-        guard let voteCount = representation["vote_count"] as? Int else {return nil}
-        guard let video = representation["video"] as? Bool else {return nil}
-        guard let voteAverage = representation["vote_average"] as? Double else {return nil}
-//        guard
-//            let representation = representation as? [String: Any],
-//            let posterPath = representation["poster_path"] as? String,
-//            let adult = representation["adult"] as? Bool,
-//            let overview = representation["overview"] as? String,
-//            let releaseDate = representation["release_date"] as? String,
-//            let originalTitle = representation["original_title"] as? String,
-//            let genreIds = representation["genre_ids"] as?[Int]
-//            else { return nil }
-        
-        self.posterPath = posterPath
-        self.adult = adult
-        self.overview = overview
-        self.releaseDate = releaseDate
-        self.genreIds = genreIds
-        self.id = id
-        self.originalTitle = originalTitle
-        self.originalLanguage = originalLanguage
-        self.title = title
-        self.backdropPath = backdropPath
-        self.popularity = popularity
-        self.voteCount = voteCount
-        self.video = video
-        self.voteAverage = voteAverage
-    }
+//    init?(response: HTTPURLResponse, representation: Any) {
+//        guard let representation = representation as? [String: Any] else {return nil}
+//        guard let posterPath = representation["poster_path"] as? String else {return nil}
+//        guard let adult = representation["adult"] as? Bool else {return nil}
+//        guard let overview = representation["overview"] as? String else {return nil}
+//        guard let releaseDate = representation["release_date"] as? String else {return nil}
+//        guard let genreIds = representation["genre_ids"] as?[Int] else {return nil}
+//        guard let id = representation["id"] as? Int else {return nil}
+//        guard let originalTitle = representation["original_title"] as? String else {return nil}
+//        guard let originalLanguage = representation["original_language"] as? String else {return nil}
+//        guard let title = representation["title"] as? String else {return nil}
+//        guard let backdropPath = representation["backdrop_path"] as? String else {return nil}
+//        guard let popularity = representation["popularity"] as? Double else {return nil}
+//        guard let voteCount = representation["vote_count"] as? Int else {return nil}
+//        guard let video = representation["video"] as? Bool else {return nil}
+//        guard let voteAverage = representation["vote_average"] as? Double else {return nil}
+////        guard
+////            let representation = representation as? [String: Any],
+////            let posterPath = representation["poster_path"] as? String,
+////            let adult = representation["adult"] as? Bool,
+////            let overview = representation["overview"] as? String,
+////            let releaseDate = representation["release_date"] as? String,
+////            let originalTitle = representation["original_title"] as? String,
+////            let genreIds = representation["genre_ids"] as?[Int]
+////            else { return nil }
+//        
+//        self.posterPath = posterPath
+//        self.adult = adult
+//        self.overview = overview
+//        self.releaseDate = releaseDate
+//        self.genreIds = genreIds
+//        self.id = id
+//        self.originalTitle = originalTitle
+//        self.originalLanguage = originalLanguage
+//        self.title = title
+//        self.backdropPath = backdropPath
+//        self.popularity = popularity
+//        self.voteCount = voteCount
+//        self.video = video
+//        self.voteAverage = voteAverage
+//    }
 }

@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Alamofire
+import AlamofireObjectMapper
+
 
 class MoviesListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -14,16 +17,16 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var moviesListTableView: UITableView!
     
     private var moviesList = [MovieItem]()
-    private var movieHandler = MovieHandler()
+    
+    private var mainPageURL = URL(string: "https://api.themoviedb.org/3/discover/movie?api_key=bebe2550a271cb5b5afd5d7a31c80926&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.movieHandler.getMovieDiscover()
-        
         moviesListTableView.delegate = self
         moviesListTableView.dataSource = self
         moviesListTableView.register(UINib(nibName: "ShortMovieItemTableViewCell", bundle: nil), forCellReuseIdentifier: "ShortMovieItemTableViewCell")
+        self.getData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,6 +34,20 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
         // Dispose of any resources that can be recreated.
     }
     
+    func getData() {
+        Alamofire.request(mainPageURL!).responseObject { (response: DataResponse<MovieDiscover>) in
+            debugPrint(response)
+            
+            if let movieResponse = response.result.value {
+                for movie in (movieResponse.results)! {
+                    self.moviesList.append(movie)
+                }
+            }
+            DispatchQueue.main.async {
+                self.moviesListTableView.reloadData()
+            }
+        }
+    }
     
     // MARK: - Table view data source
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -38,11 +55,17 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return moviesList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ShortMovieItemTableViewCell", for: indexPath) as! ShortMovieItemTableViewCell
+        
+        if moviesList.count > indexPath.row {
+            let movie = self.moviesList[indexPath.row]
+            
+            cell.movieTitle.text = movie.title
+        }
         
         return cell
     }

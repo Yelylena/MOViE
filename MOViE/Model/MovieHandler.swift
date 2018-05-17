@@ -9,6 +9,8 @@
 import UIKit
 import Foundation
 import Alamofire
+import AlamofireObjectMapper
+
 
 class MovieHandler {
     
@@ -28,6 +30,7 @@ class MovieHandler {
 //            }
 //        }
         
+        var movieList = [MovieItem]()
         
         Alamofire.request("https://api.themoviedb.org/3/discover/movie?api_key=bebe2550a271cb5b5afd5d7a31c80926&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1").responseObject { (response: DataResponse<MovieDiscover>) in
             debugPrint("error")
@@ -35,8 +38,10 @@ class MovieHandler {
             if let movieDiscover = response.result.value {
                 print("\(movieDiscover.page ?? 0)" + "\(movieDiscover.totalResults)" + "\(movieDiscover.totalPages)" + "\n")
                 
-                for movie in movieDiscover.results! {
+                for (i, movie) in movieDiscover.results!.enumerated() {
+                //    movieList.append((movie.values as? MovieItem)!)
                     print(movie)
+                    print("Total items \(movieList.count)")
                 }
             }
         }

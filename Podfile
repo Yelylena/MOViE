@@ -8,7 +8,9 @@ target 'MOViE' do
   # Pods for MOViE
     pod 'YouTubePlayer'
     pod 'Alamofire', '~> 4.7'
-
+    pod 'AlamofireObjectMapper', '~> 5.0'
+    pod 'ObjectMapper', '~> 3.1'
+    
   target 'MOViETests' do
     inherit! :search_paths
     # Pods for testing

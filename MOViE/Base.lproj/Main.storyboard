@@ -36,8 +36,8 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="dCK-TP-k8Q" id="aGm-ik-7yf"/>
-                                    <outlet property="delegate" destination="dCK-TP-k8Q" id="y8N-be-Mhk"/>
+                                    <outlet property="dataSource" destination="dCK-TP-k8Q" id="ive-xy-ZiS"/>
+                                    <outlet property="delegate" destination="dCK-TP-k8Q" id="4Ot-T4-9x3"/>
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ccm-9H-IjA">
