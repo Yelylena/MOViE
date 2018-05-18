@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import AlamofireObjectMapper
+import SDWebImage
 
 
 class MoviesListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -41,6 +42,8 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
             if let movieResponse = response.result.value {
                 for movie in (movieResponse.results)! {
                     self.moviesList.append(movie)
+                    print(movie.posterPath)
+                    print(movie.backdropPath)
                 }
             }
             DispatchQueue.main.async {
@@ -64,10 +67,18 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
         if moviesList.count > indexPath.row {
             let movie = self.moviesList[indexPath.row]
             
+            
+            let fullPosterPath = "https://image.tmdb.org/t/p/w700_and_h392_bestv2" + String(movie.backdropPath!)
+            print(fullPosterPath)
+        
+            cell.movieImage.sd_setImage(with: URL(string: fullPosterPath))
             cell.movieTitle.text = movie.title
         }
-        
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "DetailedMovieSegue", sender: nil)
     }
     
     /*

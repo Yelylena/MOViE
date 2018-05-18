@@ -10,6 +10,7 @@ target 'MOViE' do
     pod 'Alamofire', '~> 4.7'
     pod 'AlamofireObjectMapper', '~> 5.0'
     pod 'ObjectMapper', '~> 3.1'
+    pod 'SDWebImage', '~> 4.0'
     
   target 'MOViETests' do
     inherit! :search_paths

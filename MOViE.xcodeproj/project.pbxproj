@@ -11,6 +11,7 @@
 		43487A5D20ACE3DB0087C0F9 /* MovieDiscover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43487A5C20ACE3DB0087C0F9 /* MovieDiscover.swift */; };
 		4397712020AE1BC900706C88 /* ShortMovieItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4397711E20AE1BC900706C88 /* ShortMovieItemTableViewCell.swift */; };
 		4397712120AE1BC900706C88 /* ShortMovieItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4397711F20AE1BC900706C88 /* ShortMovieItemTableViewCell.xib */; };
+		4397712920AEF71400706C88 /* DetailedMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4397712820AEF71400706C88 /* DetailedMovieViewController.swift */; };
 		43DB676620AB2EFC009F8A91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DB676520AB2EFC009F8A91 /* AppDelegate.swift */; };
 		43DB676B20AB2EFC009F8A91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43DB676920AB2EFC009F8A91 /* Main.storyboard */; };
 		43DB676E20AB2EFC009F8A91 /* MOViE.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 43DB676C20AB2EFC009F8A91 /* MOViE.xcdatamodeld */; };
@@ -48,6 +49,7 @@
 		43487A5C20ACE3DB0087C0F9 /* MovieDiscover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDiscover.swift; sourceTree = "<group>"; };
 		4397711E20AE1BC900706C88 /* ShortMovieItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortMovieItemTableViewCell.swift; sourceTree = "<group>"; };
 		4397711F20AE1BC900706C88 /* ShortMovieItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShortMovieItemTableViewCell.xib; sourceTree = "<group>"; };
+		4397712820AEF71400706C88 /* DetailedMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedMovieViewController.swift; sourceTree = "<group>"; };
 		43DB676220AB2EFC009F8A91 /* MOViE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MOViE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43DB676520AB2EFC009F8A91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43DB676A20AB2EFC009F8A91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				43F46BB720AB7FC8008E9CAE /* MoviesListViewController.swift */,
+				4397712820AEF71400706C88 /* DetailedMovieViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/YouTubePlayer/YouTubePlayer.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -353,6 +357,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YouTubePlayer.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -427,6 +432,7 @@
 				43F46BB820AB7FC8008E9CAE /* MoviesListViewController.swift in Sources */,
 				43487A5D20ACE3DB0087C0F9 /* MovieDiscover.swift in Sources */,
 				4397712020AE1BC900706C88 /* ShortMovieItemTableViewCell.swift in Sources */,
+				4397712920AEF71400706C88 /* DetailedMovieViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -604,10 +610,7 @@
 				DEVELOPMENT_TEAM = 7Z6T588M79;
 				INFOPLIST_FILE = MOViE/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Yelylena.MOViE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -624,10 +627,7 @@
 				DEVELOPMENT_TEAM = 7Z6T588M79;
 				INFOPLIST_FILE = MOViE/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Yelylena.MOViE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -644,11 +644,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7Z6T588M79;
 				INFOPLIST_FILE = MOViETests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Yelylena.MOViETests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -666,11 +662,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7Z6T588M79;
 				INFOPLIST_FILE = MOViETests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Yelylena.MOViETests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -687,11 +679,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7Z6T588M79;
 				INFOPLIST_FILE = MOViEUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Yelylena.MOViEUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -708,11 +696,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7Z6T588M79;
 				INFOPLIST_FILE = MOViEUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Yelylena.MOViEUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
