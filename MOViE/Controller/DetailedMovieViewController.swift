@@ -7,13 +7,28 @@
 //
 
 import UIKit
+import SDWebImage
 
 class DetailedMovieViewController: UIViewController {
-
+    
+    @IBOutlet weak var movieImage: UIImageView!
+    @IBOutlet weak var movieTitle: UILabel!
+    @IBOutlet weak var popularity: UILabel!
+    @IBOutlet weak var trailerLabel: UILabel!
+    @IBOutlet weak var overview: UILabel!
+    
+    var movie: MovieItem?
+    var basePosterPath = "https://image.tmdb.org/t/p/w700_and_h392_bestv2"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        self.movieImage.sd_setImage(with: URL(string: basePosterPath + (self.movie?.backdropPath!)!))
+        self.movieTitle.text = self.movie?.title
+        self.popularity.text = String(format: "%.0f", (self.movie?.voteAverage)! * 10) + "%"
+        self.overview.text = self.movie?.overview
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,7 +36,7 @@ class DetailedMovieViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
     // MARK: - Navigation
 

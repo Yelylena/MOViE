@@ -26,13 +26,13 @@
                             <constraint firstAttribute="width" secondItem="H4t-Ng-WHJ" secondAttribute="height" multiplier="160:111" id="zZw-pc-hv0"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wAc-pU-15h">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wAc-pU-15h">
                         <rect key="frame" x="10" y="232" width="300" height="57"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="wAc-pU-15h" secondAttribute="height" multiplier="100:19" id="jB4-bb-aVs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2LY-CV-dUe"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>

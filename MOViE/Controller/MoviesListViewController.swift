@@ -20,6 +20,7 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
     private var moviesList = [MovieItem]()
     
     private var mainPageURL = URL(string: "https://api.themoviedb.org/3/discover/movie?api_key=bebe2550a271cb5b5afd5d7a31c80926&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1")
+    private var currentPage = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,9 +43,9 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
             if let movieResponse = response.result.value {
                 for movie in (movieResponse.results)! {
                     self.moviesList.append(movie)
-                    print(movie.posterPath)
-                    print(movie.backdropPath)
+                    
                 }
+                self.currentPage = movieResponse.page!
             }
             DispatchQueue.main.async {
                 self.moviesListTableView.reloadData()
@@ -66,10 +67,7 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
         
         if moviesList.count > indexPath.row {
             let movie = self.moviesList[indexPath.row]
-            
-            
             let fullPosterPath = "https://image.tmdb.org/t/p/w700_and_h392_bestv2" + String(movie.backdropPath!)
-            print(fullPosterPath)
         
             cell.movieImage.sd_setImage(with: URL(string: fullPosterPath))
             cell.movieTitle.text = movie.title
@@ -81,14 +79,17 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
         performSegue(withIdentifier: "DetailedMovieSegue", sender: nil)
     }
     
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "DetailedMovieSegue" {
+            if let viewController = segue.destination as? DetailedMovieViewController {
+                if let indexPath = moviesListTableView.indexPathForSelectedRow {
+                    let movie = self.moviesList[indexPath.row]
+                    viewController.movie = movie
+                }
+            }
+        }
     }
-    */
 
 }
