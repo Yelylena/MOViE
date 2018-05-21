@@ -12,15 +12,18 @@ import AlamofireObjectMapper
 import SDWebImage
 
 
-class MoviesListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MoviesListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
     
     @IBOutlet weak var moviesListTableView: UITableView!
+    @IBOutlet weak var moviesListSearchBar: UISearchBar!
     
     private var moviesList = [MovieItem]()
-    
+
     private var mainPageURL = URL(string: "https://api.themoviedb.org/3/discover/movie?api_key=bebe2550a271cb5b5afd5d7a31c80926&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1")
+//    private var pageURL = URL(string: "https://api.themoviedb.org/3/search/\(searchMovie!)api_key=<<api_key>>&language=en-US&page=1&include_adult=false")
     private var currentPage = 0
+    private var basePosterPath = "https://image.tmdb.org/t/p/original"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +31,8 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
         moviesListTableView.delegate = self
         moviesListTableView.dataSource = self
         moviesListTableView.register(UINib(nibName: "ShortMovieItemTableViewCell", bundle: nil), forCellReuseIdentifier: "ShortMovieItemTableViewCell")
+        moviesListSearchBar.delegate = self
+        
         self.getData()
     }
 
@@ -67,9 +72,13 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
         
         if moviesList.count > indexPath.row {
             let movie = self.moviesList[indexPath.row]
-            let fullPosterPath = "https://image.tmdb.org/t/p/w700_and_h392_bestv2" + String(movie.backdropPath!)
-        
-            cell.movieImage.sd_setImage(with: URL(string: fullPosterPath))
+
+            if let backdropPath = movie.backdropPath {
+                let fullPosterPath = basePosterPath + backdropPath
+                cell.movieImage.sd_setImage(with: URL(string: fullPosterPath))
+            } else {
+                cell.movieImage.sd_setImage(with: URL(string: ""))
+            }
             cell.movieTitle.text = movie.title
         }
         return cell
@@ -77,6 +86,33 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "DetailedMovieSegue", sender: nil)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+
+        guard let searchMovie = searchBar.text else {return}
+        
+        let searchURL = URL(string: "https://api.themoviedb.org/3/search/movie?query='\(searchMovie)'&api_key=bebe2550a271cb5b5afd5d7a31c80926&language=en-US&page=1&include_adult=false")
+        
+        print(searchURL!)
+        
+        Alamofire.request(searchURL!).responseObject { (response: DataResponse<MovieDiscover>) in
+            debugPrint(response)
+            
+            var list = [MovieItem]()
+            
+            if let movieResponse = response.result.value {
+                for movie in (movieResponse.results)! {
+                    list.append(movie)
+                }
+                self.currentPage = movieResponse.page!
+            }
+            DispatchQueue.main.async {
+                self.moviesList = list
+                self.moviesListTableView.reloadData()
+            }
+        }
+//        self.
     }
     
     // MARK: - Navigation

@@ -18,12 +18,17 @@ class DetailedMovieViewController: UIViewController {
     @IBOutlet weak var overview: UILabel!
     
     var movie: MovieItem?
-    var basePosterPath = "https://image.tmdb.org/t/p/w700_and_h392_bestv2"
+    private var basePosterPath = "https://image.tmdb.org/t/p/original"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.movieImage.sd_setImage(with: URL(string: basePosterPath + (self.movie?.backdropPath!)!))
+        if let backdropPath = movie?.backdropPath {
+            let fullPosterPath = basePosterPath + backdropPath
+            movieImage.sd_setImage(with: URL(string: fullPosterPath))
+        } else {
+            movieImage.sd_setImage(with: URL(string: ""))
+        }
         self.movieTitle.text = self.movie?.title
         self.popularity.text = String(format: "%.0f", (self.movie?.voteAverage)! * 10) + "%"
         self.overview.text = self.movie?.overview
