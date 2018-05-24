@@ -8,17 +8,19 @@
 
 import UIKit
 import SDWebImage
+import Alamofire
+import AlamofireObjectMapper
 
 class DetailedMovieViewController: UIViewController {
     
     @IBOutlet weak var movieImage: UIImageView!
     @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var popularity: UILabel!
-    @IBOutlet weak var trailerLabel: UILabel!
+    @IBOutlet weak var trailerLabel: UIButton!
     @IBOutlet weak var overview: UILabel!
     
     var movie: MovieItem?
-    private var basePosterPath = "https://image.tmdb.org/t/p/original"
+    var basePosterPath = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,9 +31,13 @@ class DetailedMovieViewController: UIViewController {
         } else {
             movieImage.sd_setImage(with: URL(string: ""))
         }
+
+        self.getData()
+        
         self.movieTitle.text = self.movie?.title
         self.popularity.text = String(format: "%.0f", (self.movie?.voteAverage)! * 10) + "%"
         self.overview.text = self.movie?.overview
+        
         
         
     }
@@ -41,6 +47,15 @@ class DetailedMovieViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func getData() {
+        Alamofire.request("").responseObject { (response: DataResponse<MovieItem>) in
+            debugPrint(response)
+
+            if let movieResponse = response.result.value {
+
+            }
+        }
+    }
     
     /*
     // MARK: - Navigation

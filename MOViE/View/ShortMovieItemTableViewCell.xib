@@ -14,22 +14,22 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ShortMovieItemTableViewCell" id="KGk-i7-Jjw" customClass="ShortMovieItemTableViewCell" customModule="MOViE" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="270"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="299.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="269.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="H4t-Ng-WHJ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="222"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="223"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="H4t-Ng-WHJ" secondAttribute="height" multiplier="160:111" id="zZw-pc-hv0"/>
+                            <constraint firstAttribute="width" secondItem="H4t-Ng-WHJ" secondAttribute="height" multiplier="320:223" id="Voa-IB-gsh"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wAc-pU-15h">
-                        <rect key="frame" x="10" y="232" width="300" height="57"/>
+                        <rect key="frame" x="10" y="232.5" width="300" height="20.5"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="wAc-pU-15h" secondAttribute="height" multiplier="100:19" id="jB4-bb-aVs"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" id="tt1-yv-NJQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2LY-CV-dUe"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -38,14 +38,14 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="H4t-Ng-WHJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="2Vb-Qu-m91"/>
-                    <constraint firstItem="wAc-pU-15h" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="L9o-Sm-8Vn"/>
-                    <constraint firstItem="wAc-pU-15h" firstAttribute="top" secondItem="H4t-Ng-WHJ" secondAttribute="bottom" constant="10" id="LLJ-v0-bG9"/>
-                    <constraint firstItem="wAc-pU-15h" firstAttribute="top" secondItem="H4t-Ng-WHJ" secondAttribute="bottom" constant="10" id="PaY-Cw-3Mh"/>
-                    <constraint firstAttribute="trailing" secondItem="wAc-pU-15h" secondAttribute="trailing" constant="10" id="UK3-yx-FFX"/>
-                    <constraint firstAttribute="trailing" secondItem="H4t-Ng-WHJ" secondAttribute="trailing" id="ULn-Tj-9z7"/>
-                    <constraint firstItem="H4t-Ng-WHJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="aqN-sN-tTI"/>
-                    <constraint firstAttribute="bottom" secondItem="wAc-pU-15h" secondAttribute="bottom" constant="10" id="raJ-WS-Lz1"/>
+                    <constraint firstAttribute="bottom" secondItem="wAc-pU-15h" secondAttribute="bottom" constant="16" id="7LP-aI-gDy"/>
+                    <constraint firstItem="wAc-pU-15h" firstAttribute="top" secondItem="H4t-Ng-WHJ" secondAttribute="bottom" constant="9.5" id="A1b-VC-laN"/>
+                    <constraint firstAttribute="trailing" secondItem="wAc-pU-15h" secondAttribute="trailing" constant="10" id="Niq-4e-LRX"/>
+                    <constraint firstItem="wAc-pU-15h" firstAttribute="top" secondItem="H4t-Ng-WHJ" secondAttribute="bottom" constant="10" id="c9u-0q-5t9"/>
+                    <constraint firstItem="H4t-Ng-WHJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="imO-Id-WcL"/>
+                    <constraint firstAttribute="trailing" secondItem="H4t-Ng-WHJ" secondAttribute="trailing" id="iqt-Ju-4O9"/>
+                    <constraint firstItem="H4t-Ng-WHJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="sQs-0G-PJM"/>
+                    <constraint firstItem="wAc-pU-15h" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="sf3-c8-56m"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

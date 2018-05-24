@@ -20,8 +20,8 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
     
     private var moviesList = [MovieItem]()
 
-    private var mainPageURL = URL(string: "https://api.themoviedb.org/3/discover/movie?api_key=bebe2550a271cb5b5afd5d7a31c80926&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1")
-//    private var pageURL = URL(string: "https://api.themoviedb.org/3/search/\(searchMovie!)api_key=<<api_key>>&language=en-US&page=1&include_adult=false")
+    private var mainPageURL = URL(string: "https://api.themoviedb.org/3/discover/movie?api_key=<<api_key>>&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1")
+//    private var currentPageURL = URL(string: "https://api.themoviedb.org/3/search/\(searchMovie!)api_key=<<api_key>>&language=en-US&page=1&include_adult=false")
     private var currentPage = 0
     private var basePosterPath = "https://image.tmdb.org/t/p/original"
     
@@ -34,6 +34,10 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
         moviesListSearchBar.delegate = self
         
         self.getData()
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(MoviesListViewController.dismissKeyboard))
+//        let test = UITapGestureRecognizer(target: self, action: <#T##Selector?#>)
+        view.addGestureRecognizer(tap)
     }
 
     override func didReceiveMemoryWarning() {
@@ -92,7 +96,7 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
 
         guard let searchMovie = searchBar.text else {return}
         
-        let searchURL = URL(string: "https://api.themoviedb.org/3/search/movie?query='\(searchMovie)'&api_key=bebe2550a271cb5b5afd5d7a31c80926&language=en-US&page=1&include_adult=false")
+        let searchURL = URL(string: "https://api.themoviedb.org/3/search/movie?query='\(searchMovie)'&api_key=<<api_key>>&language=en-US&page=1&include_adult=false")
         
         print(searchURL!)
         
@@ -115,6 +119,12 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
 //        self.
     }
     
+    
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -123,6 +133,7 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
                 if let indexPath = moviesListTableView.indexPathForSelectedRow {
                     let movie = self.moviesList[indexPath.row]
                     viewController.movie = movie
+                    viewController.basePosterPath = self.basePosterPath
                 }
             }
         }
