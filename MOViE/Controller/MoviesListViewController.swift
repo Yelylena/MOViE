@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 import Alamofire
 import AlamofireObjectMapper
 import SDWebImage
@@ -47,6 +48,7 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func getData() {
+        
         Alamofire.request(mainPageURL!).responseObject { (response: DataResponse<MovieDiscoverResponse>) in
             debugPrint(response)
             

@@ -51,13 +51,10 @@ class DetailedMovieViewController: UIViewController {
         guard let id = movie?.id else {return}
         Alamofire.request("https://api.themoviedb.org/3/movie/\(id)/videos?api_key=bebe2550a271cb5b5afd5d7a31c80926&language=en-US").responseObject { (response: DataResponse<VideosResponse>) in
             debugPrint(response)
-        
-//        Alamofire.request("https://api.themoviedb.org/3/movie/\(movie?.id)/videos?api_key=bebe2550a271cb5b5afd5d7a31c80926&language=en-US").responseObject { (response: DataResponse<VideoResponse>) in
-//            debugPrint(response)
 
-            if let videosResponse = response.result.value {
-
-            }
+//            if let videosResponse = response.result.value {
+//
+//            }
         }
     }
     
