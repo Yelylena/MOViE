@@ -104,6 +104,8 @@
                     <connections>
                         <outlet property="moviesListSearchBar" destination="T9w-nk-3mZ" id="EZP-qd-U1x"/>
                         <outlet property="moviesListTableView" destination="8yz-1T-7lb" id="tie-I3-bEN"/>
+                        <outlet property="nextMovieButton" destination="DZd-VJ-JRd" id="2dp-ct-733"/>
+                        <outlet property="previousMovieButton" destination="hrV-qR-wNd" id="IiX-dc-fZw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GV3-BN-f3e" userLabel="First Responder" sceneMemberID="firstResponder"/>

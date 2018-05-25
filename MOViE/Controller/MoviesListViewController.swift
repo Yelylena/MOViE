@@ -17,13 +17,17 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBOutlet weak var moviesListTableView: UITableView!
     @IBOutlet weak var moviesListSearchBar: UISearchBar!
+    @IBOutlet weak var previousMovieButton: UIButton!
+    @IBOutlet weak var nextMovieButton: UIButton!
     
-    private var moviesList = [MovieItem]()
+    private var movieList = [Movie]()
+    private var apiKey = String()
 
-    private var mainPageURL = URL(string: "https://api.themoviedb.org/3/discover/movie?api_key=<<api_key>>&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1")
-//    private var currentPageURL = URL(string: "https://api.themoviedb.org/3/search/\(searchMovie!)api_key=<<api_key>>&language=en-US&page=1&include_adult=false")
-    private var currentPage = 0
+    private var mainPageURL = URL(string: "https://api.themoviedb.org/3/discover/movie?api_key=bebe2550a271cb5b5afd5d7a31c80926&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1")
+    private var currentPageURL = URL(string: "")
     private var basePosterPath = "https://image.tmdb.org/t/p/original"
+    private var currentPage = 1
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,9 +39,6 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
         
         self.getData()
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(MoviesListViewController.dismissKeyboard))
-//        let test = UITapGestureRecognizer(target: self, action: <#T##Selector?#>)
-        view.addGestureRecognizer(tap)
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,12 +47,12 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func getData() {
-        Alamofire.request(mainPageURL!).responseObject { (response: DataResponse<MovieDiscover>) in
+        Alamofire.request(mainPageURL!).responseObject { (response: DataResponse<MovieDiscoverResponse>) in
             debugPrint(response)
             
             if let movieResponse = response.result.value {
                 for movie in (movieResponse.results)! {
-                    self.moviesList.append(movie)
+                    self.movieList.append(movie)
                     
                 }
                 self.currentPage = movieResponse.page!
@@ -68,14 +69,14 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return moviesList.count
+        return movieList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ShortMovieItemTableViewCell", for: indexPath) as! ShortMovieItemTableViewCell
         
-        if moviesList.count > indexPath.row {
-            let movie = self.moviesList[indexPath.row]
+        if movieList.count > indexPath.row {
+            let movie = self.movieList[indexPath.row]
 
             if let backdropPath = movie.backdropPath {
                 let fullPosterPath = basePosterPath + backdropPath
@@ -96,14 +97,14 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
 
         guard let searchMovie = searchBar.text else {return}
         
-        let searchURL = URL(string: "https://api.themoviedb.org/3/search/movie?query='\(searchMovie)'&api_key=<<api_key>>&language=en-US&page=1&include_adult=false")
+        let searchURL = URL(string: "https://api.themoviedb.org/3/search/movie?query='\(searchMovie)'&api_key=bebe2550a271cb5b5afd5d7a31c80926&language=en-US&page=1&include_adult=false")
         
         print(searchURL!)
         
-        Alamofire.request(searchURL!).responseObject { (response: DataResponse<MovieDiscover>) in
+        Alamofire.request(searchURL!).responseObject { (response: DataResponse<MovieDiscoverResponse>) in
             debugPrint(response)
             
-            var list = [MovieItem]()
+            var list = [Movie]()
             
             if let movieResponse = response.result.value {
                 for movie in (movieResponse.results)! {
@@ -112,16 +113,10 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
                 self.currentPage = movieResponse.page!
             }
             DispatchQueue.main.async {
-                self.moviesList = list
+                self.movieList = list
                 self.moviesListTableView.reloadData()
             }
         }
-//        self.
-    }
-    
-    
-    @objc func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
     
@@ -131,7 +126,7 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
         if segue.identifier == "DetailedMovieSegue" {
             if let viewController = segue.destination as? DetailedMovieViewController {
                 if let indexPath = moviesListTableView.indexPathForSelectedRow {
-                    let movie = self.moviesList[indexPath.row]
+                    let movie = self.movieList[indexPath.row]
                     viewController.movie = movie
                     viewController.basePosterPath = self.basePosterPath
                 }

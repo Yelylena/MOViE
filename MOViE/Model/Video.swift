@@ -9,8 +9,23 @@
 import Foundation
 import ObjectMapper
 
-struct Video {
+struct VideosResponse: Mappable {
+    
+    var id: Int?
+    var results: [Video]?
+    
+    init?(map: Map) {}
+    
+    mutating func mapping(map: Map) {
+        id         <- map["id"]
+        results    <- map["results"]
+    }
+}
+
+struct Video: Mappable {
     var id: String?
+    var iso_639_1: String?
+    var iso_3166_1: String?
     var key: String?
     var name: String?
     var site: String?
@@ -20,11 +35,13 @@ struct Video {
     init?(map: Map) {}
     
     mutating func mapping(map: Map) {
-        id     <- map["id"]
-        key    <- map["key"]
-        name   <- map["name"]
-        site   <- map["site"]
-        size   <- map["size"]
-        type   <- map["type"]
+        id         <- map["id"]
+        iso_639_1  <- map["iso_639_1"]
+        iso_3166_1 <- map["iso_3166_1"]
+        key        <- map["key"]
+        name       <- map["name"]
+        site       <- map["site"]
+        size       <- map["size"]
+        type       <- map["type"]
     }
 }

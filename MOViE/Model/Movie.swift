@@ -1,5 +1,5 @@
 //
-//  MovieItem.swift
+//  Movie.swift
 //  MOViE
 //
 //  Created by Yelylena on 16.05.2018.
@@ -9,7 +9,24 @@
 import UIKit
 import ObjectMapper
 
-struct MovieItem: Mappable {
+struct MovieDiscoverResponse: Mappable {
+    
+    var page: Int?
+    var results: [MovieItem]?
+    var totalResults: Int?
+    var totalPages: Int?
+    
+    init?(map: Map) {}
+    
+    mutating func mapping(map: Map) {
+        page         <- map["page"]
+        results      <- map["results"]
+        totalResults <- map["total_results"]
+        totalPages   <- map["total_pages"]
+    }
+}
+
+struct Movie: Mappable {
 
     var posterPath: String?
     var adult: Bool?
