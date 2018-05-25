@@ -12,7 +12,7 @@ import ObjectMapper
 struct MovieDiscoverResponse: Mappable {
     
     var page: Int?
-    var results: [MovieItem]?
+    var results: [Movie]?
     var totalResults: Int?
     var totalPages: Int?
     

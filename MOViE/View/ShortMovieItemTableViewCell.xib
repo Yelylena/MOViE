@@ -39,7 +39,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="wAc-pU-15h" secondAttribute="bottom" constant="16" id="7LP-aI-gDy"/>
-                    <constraint firstItem="wAc-pU-15h" firstAttribute="top" secondItem="H4t-Ng-WHJ" secondAttribute="bottom" constant="9.5" id="A1b-VC-laN"/>
+                    <constraint firstItem="wAc-pU-15h" firstAttribute="top" secondItem="H4t-Ng-WHJ" secondAttribute="bottom" constant="9" id="A1b-VC-laN"/>
                     <constraint firstAttribute="trailing" secondItem="wAc-pU-15h" secondAttribute="trailing" constant="10" id="Niq-4e-LRX"/>
                     <constraint firstItem="wAc-pU-15h" firstAttribute="top" secondItem="H4t-Ng-WHJ" secondAttribute="bottom" constant="10" id="c9u-0q-5t9"/>
                     <constraint firstItem="H4t-Ng-WHJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="imO-Id-WcL"/>

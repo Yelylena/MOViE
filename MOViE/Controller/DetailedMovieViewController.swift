@@ -10,6 +10,7 @@ import UIKit
 import SDWebImage
 import Alamofire
 import AlamofireObjectMapper
+import YouTubePlayer
 
 class DetailedMovieViewController: UIViewController {
     
@@ -21,6 +22,7 @@ class DetailedMovieViewController: UIViewController {
     
     var movie: Movie?
     var basePosterPath = String()
+    private var trailer: YouTubePlayerView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,8 +39,7 @@ class DetailedMovieViewController: UIViewController {
         self.movieTitle.text = self.movie?.title
         self.popularity.text = String(format: "%.0f", (self.movie?.voteAverage)! * 10) + "%"
         self.overview.text = self.movie?.overview
-        
-        
+        trailerLabel.addTarget(self, action: #selector(self.playTrailer), for: .touchUpInside)
         
     }
 
@@ -52,9 +53,35 @@ class DetailedMovieViewController: UIViewController {
         Alamofire.request("https://api.themoviedb.org/3/movie/\(id)/videos?api_key=bebe2550a271cb5b5afd5d7a31c80926&language=en-US").responseObject { (response: DataResponse<VideosResponse>) in
             debugPrint(response)
 
-//            if let videosResponse = response.result.value {
-//
-//            }
+            if let videosResponse = response.result.value {
+                for video in videosResponse.results! {
+                    if video.type == "Trailer" {
+                        self.trailer = YouTubePlayerView(frame: CGRect(x: 0, y: Int(self.navigationController!.navigationBar.frame.height + UIApplication.shared.statusBarFrame.size.height), width: Int(UIScreen.main.bounds.size.width), height: Int(self.movieImage.frame.size.height)))
+                        guard let key = video.key else {return}
+                        self.trailer?.loadVideoID(key)
+                        break
+                    }
+                }
+            }
+        }
+    }
+    
+    @objc func playTrailer() {
+        if trailer != nil {
+            view.addSubview(trailer!)
+            print(trailer?.frame.size.height)
+        } else {
+            let alert = UIAlertController(title: "Alert", message: "No trailer", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                switch action.style{
+                case .default:
+                    print("default")
+                case .cancel:
+                    print("cancel")
+                case .destructive:
+                    print("destructive")
+                }}))
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
