@@ -22,12 +22,14 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var nextMovieButton: UIButton!
     
     private var movieList = [Movie]()
-    private var apiKey = String()
-
-    private var mainPageURL = URL(string: "https://api.themoviedb.org/3/discover/movie?api_key=bebe2550a271cb5b5afd5d7a31c80926&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1")
-    private var currentPageURL = URL(string: "")
-    private var basePosterPath = "https://image.tmdb.org/t/p/original"
+//    private var apiKey = String()
     private var currentPage = 1
+    
+    private var mainPageURL = URL(string: "https://api.themoviedb.org/3/discover/movie?api_key=bebe2550a271cb5b5afd5d7a31c80926&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1")
+    private var currentPageURL = URL(string: "https://api.themoviedb.org/3/discover/movie?api_key=bebe2550a271cb5b5afd5d7a31c80926&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1")
+    private var currentPageURLString = "https://api.themoviedb.org/3/discover/movie?api_key=bebe2550a271cb5b5afd5d7a31c80926&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page="
+    private var basePosterPath = "https://image.tmdb.org/t/p/original"
+    
     
     
     override func viewDidLoad() {
@@ -39,7 +41,9 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
         moviesListSearchBar.delegate = self
         
         self.getData()
-        
+        previousMovieButton.addTarget(self, action: #selector(self.showPreviousPage), for: .touchUpInside)
+        nextMovieButton.addTarget(self, action: #selector(self.showNextPage), for: .touchUpInside)
+        previousMovieButton.isEnabled = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,7 +53,7 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func getData() {
         
-        Alamofire.request(mainPageURL!).responseObject { (response: DataResponse<MovieDiscoverResponse>) in
+        Alamofire.request(currentPageURL!).responseObject { (response: DataResponse<MovieDiscoverResponse>) in
             debugPrint(response)
             
             if let movieResponse = response.result.value {
@@ -95,31 +99,44 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
         performSegue(withIdentifier: "DetailedMovieSegue", sender: nil)
     }
     
+    func getAndReloadData(url: URL?) {
+        currentPageURL = url
+        movieList = [Movie]()
+        self.getData()
+        self.moviesListTableView.reloadData()
+    }
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
 
         guard let searchMovie = searchBar.text else {return}
         
         let searchURL = URL(string: "https://api.themoviedb.org/3/search/movie?query='\(searchMovie)'&api_key=bebe2550a271cb5b5afd5d7a31c80926&language=en-US&page=1&include_adult=false")
         
-        print(searchURL!)
+        self.getAndReloadData(url: searchURL)
         
-        Alamofire.request(searchURL!).responseObject { (response: DataResponse<MovieDiscoverResponse>) in
-            debugPrint(response)
-            
-            var list = [Movie]()
-            
-            if let movieResponse = response.result.value {
-                for movie in (movieResponse.results)! {
-                    list.append(movie)
-                }
-                self.currentPage = movieResponse.page!
-            }
-            DispatchQueue.main.async {
-                self.movieList = list
-                self.moviesListTableView.reloadData()
-            }
-        }
         view.endEditing(true)
+    }
+    
+    @objc func showPreviousPage(_ sender: UIButton) {
+        let previousPageURL = URL(string: currentPageURLString + "\(currentPage - 1)")
+
+        if currentPage > 1 {
+            self.getAndReloadData(url: previousPageURL)
+        }
+        
+        if currentPageURL == mainPageURL {
+            self.previousMovieButton.isEnabled = false
+        }
+        
+    }
+    
+    @objc func showNextPage(_ sender: UIButton) {
+    
+        let nextPageURL = URL(string: currentPageURLString + "\(currentPage + 1)")
+        
+        self.getAndReloadData(url: nextPageURL)
+        
+        self.previousMovieButton.isEnabled = true
     }
     
     // MARK: - Navigation

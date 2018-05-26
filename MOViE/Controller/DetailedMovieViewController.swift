@@ -71,7 +71,7 @@ class DetailedMovieViewController: UIViewController {
             view.addSubview(trailer!)
             print(trailer?.frame.size.height)
         } else {
-            let alert = UIAlertController(title: "Alert", message: "No trailer", preferredStyle: UIAlertControllerStyle.alert)
+            let alert = UIAlertController(title: "", message: "No trailer", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
                 switch action.style{
                 case .default:
