@@ -50,7 +50,7 @@ class DetailedMovieViewController: UIViewController {
     
     func getData() {
         guard let id = movie?.id else {return}
-        Alamofire.request("https://api.themoviedb.org/3/movie/\(id)/videos?api_key=bebe2550a271cb5b5afd5d7a31c80926&language=en-US").responseObject { (response: DataResponse<VideosResponse>) in
+        Alamofire.request("https://api.themoviedb.org/3/movie/\(id)/videos?api_key=''&language=en-US").responseObject { (response: DataResponse<VideosResponse>) in
             debugPrint(response)
 
             if let videosResponse = response.result.value {
@@ -69,7 +69,6 @@ class DetailedMovieViewController: UIViewController {
     @objc func playTrailer() {
         if trailer != nil {
             view.addSubview(trailer!)
-            print(trailer?.frame.size.height)
         } else {
             let alert = UIAlertController(title: "", message: "No trailer", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
