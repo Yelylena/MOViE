@@ -24,10 +24,10 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
     private var movieList = [Movie]()
     private var currentPage = 1
     
-    private var mainPageURL = URL(string: "https://api.themoviedb.org/3/discover/movie?api_key=''&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1")
-    private var currentPageURL = URL(string: "https://api.themoviedb.org/3/discover/movie?api_key=''&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1")
+    private var mainPageURL = URL(string: "https://api.themoviedb.org/3/discover/movie?api_key=bebe2550a271cb5b5afd5d7a31c80926&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1")
+    private var currentPageURL = URL(string: "https://api.themoviedb.org/3/discover/movie?api_key=bebe2550a271cb5b5afd5d7a31c80926&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1")
     
-    private var basePagePath = "https://api.themoviedb.org/3/discover/movie?api_key=''&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page="
+    private var basePagePath = "https://api.themoviedb.org/3/discover/movie?api_key=bebe2550a271cb5b5afd5d7a31c80926&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page="
     private var basePosterPath = "https://image.tmdb.org/t/p/original"
     
     
@@ -110,7 +110,7 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
 
         guard let searchMovie = searchBar.text else {return}
         
-        let searchURL = URL(string: "https://api.themoviedb.org/3/search/movie?query='\(searchMovie)'&api_key=''&language=en-US&page=1&include_adult=false")
+        let searchURL = URL(string: "https://api.themoviedb.org/3/search/movie?query='\(searchMovie)'&api_key=bebe2550a271cb5b5afd5d7a31c80926&language=en-US&page=1&include_adult=false")
         
         self.getAndReloadData(url: searchURL)
         
