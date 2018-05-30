@@ -31,8 +31,6 @@ class DetailedMovieViewController: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         
         detailedScrollView.delegate = self
-        detailedScrollView.setNeedsLayout()
-        detailedScrollView.layoutIfNeeded()
         
         if let backdropPath = movie?.backdropPath {
             let fullPosterPath = basePosterPath + backdropPath
