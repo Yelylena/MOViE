@@ -41,8 +41,6 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
         moviesListSearchBar.delegate = self
         
         self.getData()
-        previousMovieButton.addTarget(self, action: #selector(self.showPreviousPage), for: .touchUpInside)
-        nextMovieButton.addTarget(self, action: #selector(self.showNextPage), for: .touchUpInside)
         previousMovieButton.isEnabled = false
     }
 
@@ -117,7 +115,7 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
         view.endEditing(true)
     }
     
-    @objc func showPreviousPage(_ sender: UIButton) {
+    @IBAction func showPreviousPage(_ sender: UIButton) {
         let previousPageURL = URL(string: basePagePath + "\(currentPage - 1)")
 
         if currentPage > 1 {
@@ -130,7 +128,7 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
         
     }
     
-    @objc func showNextPage(_ sender: UIButton) {
+    @IBAction func showNextPage(_ sender: UIButton) {
     
         let nextPageURL = URL(string: basePagePath + "\(currentPage + 1)")
         

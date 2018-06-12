@@ -57,12 +57,18 @@
                                         <rect key="frame" x="0.0" y="0.0" width="187.5" height="33"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <state key="normal" title="Prev"/>
+                                        <connections>
+                                            <action selector="showPreviousPage:" destination="dCK-TP-k8Q" eventType="touchUpInside" id="Pdf-bK-g0Q"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DZd-VJ-JRd">
                                         <rect key="frame" x="187.5" y="0.0" width="187.5" height="33"/>
                                         <viewLayoutGuide key="safeArea" id="pC9-0S-z7I"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <state key="normal" title="Next"/>
+                                        <connections>
+                                            <action selector="showNextPage:" destination="dCK-TP-k8Q" eventType="touchUpInside" id="WIb-xV-wMi"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
