@@ -24,13 +24,11 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
     private var movieList = [Movie]()
     private var currentPage = 1
     
-    private var mainPageURL = URL(string: "https://api.themoviedb.org/3/discover/movie?api_key=''&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1")
-    private var currentPageURL = URL(string: "https://api.themoviedb.org/3/discover/movie?api_key=''&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1")
+    private var mainPageURL = URL(string: "https://api.themoviedb.org/3/discover/movie?api_key=bebe2550a271cb5b5afd5d7a31c80926&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1")
+    private var currentPageURL = URL(string: "https://api.themoviedb.org/3/discover/movie?api_key=bebe2550a271cb5b5afd5d7a31c80926&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1")
     
-    private var basePagePath = "https://api.themoviedb.org/3/discover/movie?api_key=''&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page="
+    private var basePagePath = "https://api.themoviedb.org/3/discover/movie?api_key=bebe2550a271cb5b5afd5d7a31c80926&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page="
     private var basePosterPath = "https://image.tmdb.org/t/p/original"
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +46,7 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    // MARK: - Get data
     
     func getData() {
         
@@ -65,6 +64,13 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
                 self.moviesListTableView.reloadData()
             }
         }
+    }
+    
+    func getAndReloadData(url: URL?) {
+        currentPageURL = url
+        movieList = [Movie]()
+        self.getData()
+        self.moviesListTableView.reloadData()
     }
     
     // MARK: - Table view data source
@@ -97,22 +103,26 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
         performSegue(withIdentifier: "DetailedMovieSegue", sender: nil)
     }
     
-    func getAndReloadData(url: URL?) {
-        currentPageURL = url
-        movieList = [Movie]()
-        self.getData()
-        self.moviesListTableView.reloadData()
-    }
-    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
 
         guard let searchMovie = searchBar.text else {return}
         
-        let searchURL = URL(string: "https://api.themoviedb.org/3/search/movie?query='\(searchMovie)'&api_key=''&language=en-US&page=1&include_adult=false")
+        let searchURL = URL(string: "https://api.themoviedb.org/3/search/movie?query='\(searchMovie)'&api_key=bebe2550a271cb5b5afd5d7a31c80926&language=en-US&page=1&include_adult=false")
         
         self.getAndReloadData(url: searchURL)
         
         view.endEditing(true)
+    }
+    // MARK: - Table view delegate
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        // Delete the row from the data source
+        movieList.remove(at: indexPath.row)
+        self.moviesListTableView.reloadData()
+        
+        
+        
     }
     
     @IBAction func showPreviousPage(_ sender: UIButton) {
