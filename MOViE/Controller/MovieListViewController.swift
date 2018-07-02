@@ -1,5 +1,5 @@
 //
-//  MoviesListViewController.swift
+//  MovieListViewController.swift
 //  MOViE
 //
 //  Created by Yelylena on 15.05.2018.
@@ -13,7 +13,7 @@ import AlamofireObjectMapper
 import SDWebImage
 
 
-class MoviesListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+class MovieListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
     
     @IBOutlet weak var moviesListTableView: UITableView!
@@ -90,11 +90,11 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
 
             if let backdropPath = movie.backdropPath {
                 let fullPosterPath = basePosterPath + backdropPath
-                cell.movieImage.sd_setImage(with: URL(string: fullPosterPath))
+                cell.movieImageView.sd_setImage(with: URL(string: fullPosterPath))
             } else {
-                cell.movieImage.sd_setImage(with: URL(string: ""))
+                cell.movieImageView.sd_setImage(with: URL(string: ""))
             }
-            cell.movieTitle.text = movie.title
+            cell.titleLabel.text = movie.title
         }
         return cell
     }
@@ -119,8 +119,7 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
         
         // Delete the row from the data source
         movieList.remove(at: indexPath.row)
-        self.moviesListTableView.reloadData()
-        
+        moviesListTableView.deleteRows(at: [indexPath], with: .fade)
         
         
     }

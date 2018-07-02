@@ -10,8 +10,20 @@ import UIKit
 
 class ShortMovieItemTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var movieImage: UIImageView!
-    @IBOutlet weak var movieTitle: UILabel!
+    @IBOutlet var movieImageView: UIImageView!
+    @IBOutlet var dateLabel: UILabel!
+    @IBOutlet var titleLabel: UILabel! {
+        didSet {
+            titleLabel.numberOfLines = 0
+        }
+    }
+    @IBOutlet var ratingLabel: UILabel! {
+        didSet {
+            ratingLabel.backgroundColor = UIColor(red: 54, green: 196, blue: 151)
+            ratingLabel.layer.cornerRadius = ratingLabel.bounds.width / 2
+            ratingLabel.layer.masksToBounds = true
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
