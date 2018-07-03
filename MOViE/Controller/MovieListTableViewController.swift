@@ -110,6 +110,7 @@ class MovieListTableViewController: UITableViewController, UISearchResultsUpdati
             }
             cell.titleLabel.text = movie.title
             cell.ratingLabel.text = String(format: "%.0f", movie.voteAverage! * 10) + "%"
+ //           cell.dateLabel.text = 
         }
         return cell
     }
