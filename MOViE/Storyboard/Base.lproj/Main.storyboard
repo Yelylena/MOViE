@@ -98,37 +98,43 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="8bE-ug-g0D" userLabel="Header View" customClass="MovieDetailHeaderView" customModule="MOViE" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="s4N-Bh-cs1">
-                                    <rect key="frame" x="0.0" y="0.0" width="166" height="200"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="166.5" height="250"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" secondItem="s4N-Bh-cs1" secondAttribute="height" multiplier="83:100" id="8w5-jC-gm1"/>
-                                        <constraint firstAttribute="width" secondItem="s4N-Bh-cs1" secondAttribute="height" multiplier="83:100" id="ffc-VI-L0c"/>
+                                        <constraint firstAttribute="width" secondItem="s4N-Bh-cs1" secondAttribute="height" multiplier="133:200" id="3h3-7k-DmP"/>
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DUr-Hg-3dP">
-                                    <rect key="frame" x="176" y="70" width="189" height="24"/>
+                                    <rect key="frame" x="181.5" y="80" width="178.5" height="24"/>
                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
+                                    <variation key="heightClass=regular-widthClass=regular">
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                    </variation>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7QF-jt-gGS">
-                                    <rect key="frame" x="176" y="10" width="50" height="50"/>
+                                    <rect key="frame" x="181.5" y="15" width="50" height="50"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="50" id="XbE-Oe-xMX"/>
-                                        <constraint firstAttribute="width" constant="50" id="hA2-pJ-Evh"/>
+                                        <constraint firstAttribute="height" constant="50" id="XbE-Oe-xMX">
+                                            <variation key="heightClass=regular-widthClass=regular" constant="70"/>
+                                        </constraint>
+                                        <constraint firstAttribute="width" constant="50" id="hA2-pJ-Evh">
+                                            <variation key="heightClass=regular-widthClass=regular" constant="70"/>
+                                        </constraint>
                                     </constraints>
                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nMu-fJ-1Ce">
-                                    <rect key="frame" x="176" y="160" width="189" height="30"/>
+                                    <rect key="frame" x="181.5" y="205" width="150" height="30"/>
                                     <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="30" id="Ohw-aQ-Ve2"/>
+                                        <constraint firstAttribute="width" constant="150" id="1Fv-0a-kze"/>
                                     </constraints>
                                     <state key="normal" title="Play trailer">
                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -140,17 +146,16 @@
                             </subviews>
                             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="nMu-fJ-1Ce" secondAttribute="trailing" constant="10" id="07k-y7-CNh"/>
+                                <constraint firstAttribute="bottom" secondItem="nMu-fJ-1Ce" secondAttribute="bottom" constant="15" id="664-oz-QKJ"/>
                                 <constraint firstItem="DUr-Hg-3dP" firstAttribute="leading" secondItem="7QF-jt-gGS" secondAttribute="leading" id="HNc-0u-b30"/>
-                                <constraint firstItem="s4N-Bh-cs1" firstAttribute="top" secondItem="8bE-ug-g0D" secondAttribute="top" id="MO2-lg-LQI"/>
-                                <constraint firstAttribute="bottom" secondItem="nMu-fJ-1Ce" secondAttribute="bottom" constant="10" id="TEX-cN-XnG"/>
-                                <constraint firstItem="7QF-jt-gGS" firstAttribute="top" secondItem="8bE-ug-g0D" secondAttribute="top" constant="10" id="U6N-CZ-ZQJ"/>
-                                <constraint firstItem="s4N-Bh-cs1" firstAttribute="leading" secondItem="8bE-ug-g0D" secondAttribute="leading" id="XHH-Sf-jHX"/>
-                                <constraint firstItem="nMu-fJ-1Ce" firstAttribute="leading" secondItem="s4N-Bh-cs1" secondAttribute="trailing" constant="10" id="Z6e-tZ-ey5"/>
-                                <constraint firstItem="DUr-Hg-3dP" firstAttribute="top" secondItem="7QF-jt-gGS" secondAttribute="bottom" constant="10" id="caZ-hO-b3M"/>
-                                <constraint firstAttribute="trailing" secondItem="DUr-Hg-3dP" secondAttribute="trailing" constant="10" id="kqG-kS-feG"/>
-                                <constraint firstItem="7QF-jt-gGS" firstAttribute="leading" secondItem="s4N-Bh-cs1" secondAttribute="trailing" constant="10" id="lb8-Li-gK3"/>
-                                <constraint firstAttribute="bottom" secondItem="s4N-Bh-cs1" secondAttribute="bottom" id="txE-Z4-T31"/>
+                                <constraint firstItem="7QF-jt-gGS" firstAttribute="top" secondItem="8bE-ug-g0D" secondAttribute="top" constant="15" id="HYZ-uw-dES"/>
+                                <constraint firstItem="s4N-Bh-cs1" firstAttribute="leading" secondItem="8bE-ug-g0D" secondAttribute="leading" id="NpW-Ue-UOt"/>
+                                <constraint firstAttribute="bottom" secondItem="s4N-Bh-cs1" secondAttribute="bottom" id="UqE-DR-wLM"/>
+                                <constraint firstItem="s4N-Bh-cs1" firstAttribute="top" secondItem="8bE-ug-g0D" secondAttribute="top" id="av7-Qh-mVy"/>
+                                <constraint firstItem="DUr-Hg-3dP" firstAttribute="top" secondItem="7QF-jt-gGS" secondAttribute="bottom" constant="15" id="caZ-hO-b3M"/>
+                                <constraint firstItem="nMu-fJ-1Ce" firstAttribute="leading" secondItem="s4N-Bh-cs1" secondAttribute="trailing" constant="15" id="flT-b3-4JG"/>
+                                <constraint firstAttribute="trailing" secondItem="DUr-Hg-3dP" secondAttribute="trailing" constant="15" id="kqG-kS-feG"/>
+                                <constraint firstItem="7QF-jt-gGS" firstAttribute="leading" secondItem="s4N-Bh-cs1" secondAttribute="trailing" constant="15" id="qeF-ES-Rlj"/>
                             </constraints>
                             <connections>
                                 <outlet property="posterImageView" destination="s4N-Bh-cs1" id="mYw-TQ-ki1"/>
@@ -161,7 +166,7 @@
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MovieDetailTableViewCell" rowHeight="60" id="TY6-Zy-zk9" customClass="MovieDetailTableViewCell" customModule="MOViE" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="228" width="375" height="60"/>
+                                <rect key="frame" x="0.0" y="278" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TY6-Zy-zk9" id="gtN-uf-kBz">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
@@ -172,6 +177,9 @@
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
+                                            <variation key="heightClass=regular-widthClass=regular">
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            </variation>
                                         </label>
                                     </subviews>
                                     <constraints>
@@ -267,6 +275,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="DbR-Zs-PvU" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3HL-LB-FgL">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>

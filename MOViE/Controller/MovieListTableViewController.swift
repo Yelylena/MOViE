@@ -64,9 +64,6 @@ class MovieListTableViewController: UITableViewController, UISearchResultsUpdati
     // MARK: - Get data
     
     func getData() {
-        
-//        var arr = array
-        
         Alamofire.request(currentPageURL!).responseObject { (response: DataResponse<MovieDiscoverResponse>) in
             debugPrint(response)
             

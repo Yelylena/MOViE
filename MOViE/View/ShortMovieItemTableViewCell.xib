@@ -38,40 +38,56 @@
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ccb-6T-Fni">
                                 <rect key="frame" x="0.0" y="25.5" width="28.5" height="16"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                </variation>
                             </label>
                         </subviews>
                     </stackView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="71R-8N-5af">
                         <rect key="frame" x="10" y="10" width="50" height="50"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="50" id="EMb-YB-KT4"/>
-                            <constraint firstAttribute="width" constant="50" id="jJ1-gz-Uqu"/>
+                            <constraint firstAttribute="width" constant="50" id="4iw-gS-Fny">
+                                <variation key="heightClass=regular-widthClass=regular" constant="70"/>
+                            </constraint>
+                            <constraint firstAttribute="width" secondItem="71R-8N-5af" secondAttribute="height" multiplier="1:1" id="7JE-jf-LoU"/>
+                            <constraint firstAttribute="height" constant="50" id="eoU-zP-gC4">
+                                <variation key="heightClass=regular-widthClass=regular" constant="70"/>
+                            </constraint>
                         </constraints>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                        </variation>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="71R-8N-5af" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="1CT-51-JZZ"/>
                     <constraint firstAttribute="trailing" secondItem="cAy-vC-EmV" secondAttribute="trailing" id="4Bm-PF-0qB"/>
+                    <constraint firstItem="71R-8N-5af" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="58l-JY-Bjm"/>
                     <constraint firstItem="cAy-vC-EmV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="NaB-o3-C7F"/>
                     <constraint firstAttribute="trailing" secondItem="U4A-RN-0ui" secondAttribute="trailing" id="R2u-Uf-1we"/>
                     <constraint firstAttribute="bottom" secondItem="U4A-RN-0ui" secondAttribute="bottom" id="Rv8-h9-m4Q"/>
+                    <constraint firstItem="71R-8N-5af" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="SNZ-LY-os0"/>
                     <constraint firstAttribute="trailing" secondItem="A3q-K1-bpl" secondAttribute="trailing" constant="10" id="T0z-HP-JqR"/>
                     <constraint firstItem="cAy-vC-EmV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="bkN-UJ-rtQ"/>
                     <constraint firstItem="U4A-RN-0ui" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="fu8-2X-4JH"/>
+                    <constraint firstItem="71R-8N-5af" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="hLH-w1-Qa7"/>
                     <constraint firstItem="A3q-K1-bpl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="kyf-wQ-pfX"/>
                     <constraint firstItem="U4A-RN-0ui" firstAttribute="bottom" secondItem="A3q-K1-bpl" secondAttribute="bottom" constant="10" id="mOs-WT-KMg"/>
                     <constraint firstAttribute="bottom" secondItem="cAy-vC-EmV" secondAttribute="bottom" id="v7g-Us-OPf"/>
+                    <constraint firstItem="71R-8N-5af" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="wjz-cf-at5"/>
                     <constraint firstItem="U4A-RN-0ui" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="x6Y-LH-CdR"/>
-                    <constraint firstItem="71R-8N-5af" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="zuA-TF-bGl"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
