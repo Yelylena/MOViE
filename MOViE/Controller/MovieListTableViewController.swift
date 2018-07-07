@@ -17,22 +17,27 @@ class MovieListTableViewController: UITableViewController, UISearchResultsUpdati
     var searchController: UISearchController!
     
     private var movieList = [Movie]()
+    private var searchResults = [Movie]()
     private var currentPageIndex = 1
-    
-    private var mainPageURL = URL(string: "https://api.themoviedb.org/3/discover/movie?api_key=bebe2550a271cb5b5afd5d7a31c80926&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1")
-    private var currentPageURL = URL(string: "https://api.themoviedb.org/3/discover/movie?api_key=bebe2550a271cb5b5afd5d7a31c80926&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1")
     
     private var basePagePath = "https://api.themoviedb.org/3/discover/movie?api_key=bebe2550a271cb5b5afd5d7a31c80926&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page="
     private var basePosterPath = "https://image.tmdb.org/t/p/original"
     
+    private var mainPageURL: URL!
+    private var currentPageURL: URL!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        tableView.cellLayoutMarginsFollowReadableWidth = true
         
+        mainPageURL = URL(string: basePagePath + "1")
+        currentPageURL = URL(string: basePagePath + "\(currentPageIndex)")
+        
+        tableView.cellLayoutMarginsFollowReadableWidth = true
+        tableView.separatorStyle = .none
         tableView.register(UINib(nibName: "ShortMovieItemTableViewCell", bundle: nil), forCellReuseIdentifier: "ShortMovieItemTableViewCell")
         
-        self.getData()
+        getData()
+        print(movieList.count)
         
         // Adding a search bar
         searchController = UISearchController(searchResultsController: nil)
@@ -45,7 +50,7 @@ class MovieListTableViewController: UITableViewController, UISearchResultsUpdati
         tableView.tableHeaderView = searchController.searchBar
         
         // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+         self.clearsSelectionOnViewWillAppear = true
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
@@ -60,13 +65,14 @@ class MovieListTableViewController: UITableViewController, UISearchResultsUpdati
     
     func getData() {
         
+//        var arr = array
+        
         Alamofire.request(currentPageURL!).responseObject { (response: DataResponse<MovieDiscoverResponse>) in
             debugPrint(response)
             
             if let movieResponse = response.result.value {
                 for movie in (movieResponse.results)! {
                     self.movieList.append(movie)
-                    
                 }
                 self.currentPageIndex = movieResponse.page!
             }
@@ -79,7 +85,7 @@ class MovieListTableViewController: UITableViewController, UISearchResultsUpdati
     func getAndReloadData(url: URL?) {
         currentPageURL = url
         movieList = [Movie]()
-        self.getData()
+        getData()
         tableView.reloadData()
     }
     
@@ -92,6 +98,7 @@ class MovieListTableViewController: UITableViewController, UISearchResultsUpdati
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+//        return searchController.isActive ? searchResults.count : movieList.count
         return movieList.count
     }
 
@@ -110,7 +117,7 @@ class MovieListTableViewController: UITableViewController, UISearchResultsUpdati
             }
             cell.titleLabel.text = movie.title
             cell.ratingLabel.text = String(format: "%.0f", movie.voteAverage! * 10) + "%"
- //           cell.dateLabel.text = 
+            cell.dateLabel.text = movie.releaseDate
         }
         return cell
     }
