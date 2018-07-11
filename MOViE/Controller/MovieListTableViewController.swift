@@ -37,8 +37,7 @@ class MovieListTableViewController: UITableViewController, UISearchResultsUpdati
         tableView.register(UINib(nibName: "ShortMovieItemTableViewCell", bundle: nil), forCellReuseIdentifier: "ShortMovieItemTableViewCell")
         
         getData()
-        print(movieList.count)
-        
+
         // Adding a search bar
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
@@ -65,13 +64,13 @@ class MovieListTableViewController: UITableViewController, UISearchResultsUpdati
     
     func getData() {
         Alamofire.request(currentPageURL!).responseObject { (response: DataResponse<MovieDiscoverResponse>) in
-            debugPrint(response)
+            debugPrint("successful")
             
-            if let movieResponse = response.result.value {
-                for movie in (movieResponse.results)! {
+            if let response = response.result.value {
+                for movie in (response.results)! {
                     self.movieList.append(movie)
                 }
-                self.currentPageIndex = movieResponse.page!
+                self.currentPageIndex = response.page!
             }
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -134,8 +133,6 @@ class MovieListTableViewController: UITableViewController, UISearchResultsUpdati
         let searchURL = URL(string: "https://api.themoviedb.org/3/search/movie?query='\(searchText)'&api_key=bebe2550a271cb5b5afd5d7a31c80926&language=en-US&page=1&include_adult=false")
         
         self.getAndReloadData(url: searchURL)
-        
-        view.endEditing(true)
     }
     
     func updateSearchResults(for searchController: UISearchController) {
